@@ -3,24 +3,22 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.List;
 
 import javax.imageio.ImageIO;
 
 public class MazeTextToPng {
 
 	public static void main(String[] args) {
-		
+		/*
 		List<String> vargs = Arrays.asList(args);
 		System.out.println(vargs);
-		
+		*/
 		// init
 		
 		int x = 1;
 		int y = 1;
 		
-		int base = 16;
+		int base = 16; // #xxyyzz colors are in base 16
 		
 		String mazeInName = "text";
 		String mazeOutName = "maze";
@@ -30,9 +28,9 @@ public class MazeTextToPng {
 		char wallch = '8';
 		char pathch = '.';
 		
-		String floorc = "ffffff";
-		String pathc = "ff0000";
-		String wallc = "000000";
+		String floorc = "ffffff"; //black
+		String pathc = "ff0000"; //red
+		String wallc = "000000"; //white
 
 		// read args
 		
@@ -41,8 +39,10 @@ public class MazeTextToPng {
 			switch (command) {
 			case "-in": mazeInName = args[i+1]; break;
 			case "-out": mazeOutName = args[i+1]; break;
+			
 			case "-wall": wallch = args[i+1].charAt(0); break;
 			case "-path": pathch = args[i+1].charAt(0); break;
+			
 			case "-floorc": floorc = args[i+1]; break;
 			case "-pathc": pathc = args[i+1]; break;
 			case "-wallc": wallc = args[i+1]; break;
@@ -61,9 +61,10 @@ public class MazeTextToPng {
 			BufferedReader in = new BufferedReader(new FileReader(mazeInName+".txt"));
 			y = in.readLine().length();
 			x = (int) in.lines().count()+1;
-			System.out.println(x);
-			System.out.println(y);
 			in.close();
+			/*System.out.println(x);
+			System.out.println(y);*/
+			
 			in = new BufferedReader(new FileReader(mazeInName+".txt"));
 			Labimage = new BufferedImage(x, y, BufferedImage.TYPE_3BYTE_BGR);
 			String line;
