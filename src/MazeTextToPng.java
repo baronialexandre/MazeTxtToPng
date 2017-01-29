@@ -59,8 +59,8 @@ public class MazeTextToPng {
 		BufferedImage Labimage = null;
 		try {
 			BufferedReader in = new BufferedReader(new FileReader(mazeInName+".txt"));
-			y = in.readLine().length();
-			x = (int) in.lines().count()+1;
+			x = in.readLine().length();
+			y = (int) in.lines().count()+1;
 			in.close();
 			/*System.out.println(x);
 			System.out.println(y);*/
@@ -72,11 +72,11 @@ public class MazeTextToPng {
 				//System.out.println(line);
 				for(int i = 0, n = line.length(); i < n; i++){
 					if(line.charAt(i)== wallch)
-						Labimage.setRGB(compt, i, wall);
+						Labimage.setRGB(i, compt, wall);
 					else if(line.charAt(i)== pathch)
-						Labimage.setRGB(compt, i, path);
+						Labimage.setRGB(i, compt, path);
 					else
-						Labimage.setRGB(compt, i, floor);
+						Labimage.setRGB(i, compt, floor);
 				}
 				++compt;
 			}
