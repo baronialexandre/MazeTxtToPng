@@ -33,7 +33,7 @@ public class MazeTextToPng {
 		int chemin = (rc << 16) | (gc << 8) | bc;
 		int mur = (rw << 16) | (gw << 8) | bw;
 		try {
-			BufferedReader in = new BufferedReader(new FileReader("mazehere/text.txt"));
+			BufferedReader in = new BufferedReader(new FileReader("text.txt"));
 			String line;
 			while ((line = in.readLine()) != null) {
 				//System.out.println(line);
