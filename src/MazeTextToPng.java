@@ -86,10 +86,11 @@ public class MazeTextToPng {
 			e.printStackTrace();
 		}
 		File f = new File(mazeOutName+".png");
-		System.out.println(ok);
 		try {
 			ImageIO.write(Labimage, "PNG", f);
+			System.out.println(ok);
 		} catch (IOException e) {
+			System.out.println(exception);
 			e.printStackTrace();
 		}
 	}
